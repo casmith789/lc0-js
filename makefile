@@ -21,7 +21,7 @@ EMMC_THREADS_FLAGS=
 #-s USE_PTHREADS=1
 
 EMMC_MEMORY_FLAGS=\
--s ALLOW_MEMORY_GROWTH=1
+#-s ALLOW_MEMORY_GROWTH=1
 #-s TOTAL_MEMORY=268435456 
 
 EMCC=emcc \
@@ -45,39 +45,39 @@ EMCC_LC0=$(EMCC) -I src
 
 obj/%.o:: src/utils/%.cc
 	@mkdir -p obj
-	$(EMCC_LC0) $< -o $@
+	$(EMCC_LC0) $< -c -o $@
 
 obj/%.o: src/chess/%.cc
 	@mkdir -p obj
-	$(EMCC_LC0) $< -o $@
+	$(EMCC_LC0) $< -c -o $@
 
 obj/%.o: src/proto/%.cc
 	@mkdir -p obj
-	$(EMCC_LC0) $< -o $@
+	$(EMCC_LC0) $< -c -o $@
 
 obj/%.o: src/syzygy/%.cc
 	@mkdir -p obj
-	$(EMCC_LC0) $< -o $@
+	$(EMCC_LC0) $< -c -o $@
 
 obj/%.o: src/mcts/%.cc
 	@mkdir -p obj
-	$(EMCC_LC0) $< -o $@
+	$(EMCC_LC0) $< -c -o $@
 
 obj/%.o: src/neural/%.cc
 	@mkdir -p obj
-	$(EMCC_LC0) $< -o $@
+	$(EMCC_LC0) $< -c -o $@
 
 obj/%.o: src/neural/blas/%.cc
 	@mkdir -p obj
-	$(EMCC_LC0) $< -o $@
+	$(EMCC_LC0) $< -c -o $@
 
 obj/%.o: src/benchmark/%.cc
 	@mkdir -p obj
-	$(EMCC_LC0) $< -o $@
+	$(EMCC_LC0) $< -c -o $@
 
 obj/%.o: src/%.cc
 	@mkdir -p obj
-	$(EMCC_LC0) $< -o $@
+	$(EMCC_LC0) $< -c -o $@
 
 clean::
 	rm -f $(OBJECTS)
